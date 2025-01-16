@@ -22,9 +22,9 @@ function App() {
 
     const normalizedInput = normalizeFontName(inputValue);
     const targetState = currentTarget === 'heading' ? setHeadingFont : setBodyFont;
-    
+
     targetState({ family: normalizedInput, loading: true });
-    
+
     try {
       await loadGoogleFont(normalizedInput);
       targetState({ family: normalizedInput, loading: false });
@@ -38,12 +38,12 @@ function App() {
     try {
       setHeadingFont({ family: pairing.heading, loading: true });
       setBodyFont({ family: pairing.body, loading: true });
-      
+
       await Promise.all([
         loadGoogleFont(pairing.heading),
         loadGoogleFont(pairing.body)
       ]);
-      
+
       setHeadingFont({ family: pairing.heading, loading: false });
       setBodyFont({ family: pairing.body, loading: false });
     } catch (error) {
@@ -52,14 +52,14 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
-      <header className="max-w-6xl mx-auto mb-8">
-        <div className="flex items-center gap-2 mb-4">
+    <div className="p-8 min-h-screen bg-gray-50">
+      <header className="mx-auto mb-8 max-w-6xl">
+        <div className="flex gap-2 items-center mb-4">
           <Type size={32} className="text-blue-600" />
-          <h1 className="text-3xl font-bold">Google Fonts Preview</h1>
+          <h1 className="text-3xl font-semibold">Google Fonts Preview</h1>
         </div>
-        
-        <div className="flex flex-col md:flex-row gap-4 items-start md:items-center">
+
+        <div className="flex flex-col gap-4 items-start md:flex-row md:items-center">
           <div className="flex-1">
             <FontInput
               value={inputValue}
@@ -68,25 +68,23 @@ function App() {
               isLoading={headingFont.loading || bodyFont.loading}
             />
           </div>
-          
+
           <div className="flex gap-4">
             <button
               onClick={() => setCurrentTarget('heading')}
-              className={`px-4 py-2 rounded-md ${
-                currentTarget === 'heading'
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-white border border-gray-300'
-              }`}
+              className={`px-4 py-2 rounded-md ${currentTarget === 'heading'
+                ? 'bg-blue-600 text-white'
+                : 'bg-white border border-gray-300'
+                }`}
             >
               Heading Font
             </button>
             <button
               onClick={() => setCurrentTarget('body')}
-              className={`px-4 py-2 rounded-md ${
-                currentTarget === 'body'
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-white border border-gray-300'
-              }`}
+              className={`px-4 py-2 rounded-md ${currentTarget === 'body'
+                ? 'bg-blue-600 text-white'
+                : 'bg-white border border-gray-300'
+                }`}
             >
               Body Font
             </button>
@@ -94,7 +92,7 @@ function App() {
         </div>
       </header>
 
-      <main className="max-w-6xl mx-auto">
+      <main className="mx-auto max-w-6xl">
         <div className="mb-8">
           <ColorSchemeSelector
             schemes={colorSchemes}
@@ -106,7 +104,7 @@ function App() {
         {(headingFont.family || bodyFont.family) && (
           <div className="grid gap-8">
             <div>
-              <h2 className="text-xl font-semibold mb-4">Font Preview</h2>
+              <h2 className="mb-4 text-xl font-semibold">Font Preview</h2>
               <FontPreview
                 headingFont={headingFont.family}
                 bodyFont={bodyFont.family}
