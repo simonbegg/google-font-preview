@@ -66,6 +66,8 @@ function App() {
               onChange={setInputValue}
               onSubmit={handleFontSubmit}
               isLoading={headingFont.loading || bodyFont.loading}
+              error={currentTarget === 'heading' ? headingFont.error : bodyFont.error}
+              fontName={currentTarget === 'heading' ? headingFont.family : bodyFont.family}
             />
           </div>
 
@@ -106,13 +108,13 @@ function App() {
             <div>
               <h2 className="mb-4 text-xl font-semibold">Font Preview</h2>
               <FontPreview
-                headingFont={headingFont.family}
-                bodyFont={bodyFont.family}
+                headingFont={headingFont}
+                bodyFont={bodyFont}
                 colorScheme={selectedScheme}
               />
             </div>
 
-            {headingFont.family && bodyFont.family && (
+            {headingFont.family && bodyFont.family && !headingFont.error && !bodyFont.error && (
               <CodeExport
                 css={generateFontCSS(headingFont.family, bodyFont.family)}
               />

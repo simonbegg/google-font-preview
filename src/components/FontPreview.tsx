@@ -1,9 +1,9 @@
 import React from 'react';
-import { ColorScheme } from '../types';
+import { ColorScheme, Font } from '../types';
 
 interface FontPreviewProps {
-  headingFont: string;
-  bodyFont: string;
+  headingFont: Font;
+  bodyFont: Font;
   colorScheme: ColorScheme;
 }
 
@@ -12,8 +12,8 @@ export const FontPreview: React.FC<FontPreviewProps> = ({
   bodyFont,
   colorScheme
 }) => {
-  const headingStyle = headingFont ? { fontFamily: `'${headingFont}', sans-serif` } : {};
-  const bodyStyle = bodyFont ? { fontFamily: `'${bodyFont}', sans-serif` } : {};
+  const headingStyle = headingFont.family ? { fontFamily: `'${headingFont.family}', sans-serif` } : {};
+  const bodyStyle = bodyFont.family ? { fontFamily: `'${bodyFont.family}', sans-serif` } : {};
 
   return (
     <div className={`p-8 rounded-lg ${colorScheme.background} ${colorScheme.text}`}>
@@ -24,8 +24,21 @@ export const FontPreview: React.FC<FontPreviewProps> = ({
         Typography Sample
       </h2>
       <h3 style={headingStyle} className="mb-4 text-xl font-medium">
-        {headingFont ? `Heading Font: ${headingFont}` : 'Select a heading font'} <br />
-        {bodyFont ? `Body Font: ${bodyFont}` : 'Select a body font'}
+        {headingFont.loading ? (
+          'Loading heading font...'
+        ) : headingFont.family ? (
+          `Heading Font: ${headingFont.family}`
+        ) : (
+          'Select a heading font'
+        )}
+        <br />
+        {bodyFont.loading ? (
+          'Loading body font...'
+        ) : bodyFont.family ? (
+          `Body Font: ${bodyFont.family}`
+        ) : (
+          'Select a body font'
+        )}
       </h3>
       <p style={bodyStyle} className="mt-4 text-lg">
         Elit velit ex do magna labore proident cupidatat tempor. Enim excepteur consectetur voluptate sit elit magna fugiat tempor labore anim mollit ea. Ullamco est ad consequat duis elit cillum quis esse ea officia deserunt. Anim nulla esse cillum excepteur consectetur labore.
