@@ -40,7 +40,7 @@ export const FontPreview: React.FC<FontPreviewProps> = ({
           <div className="flex gap-4 mt-4">
             <button
               style={bodyStyle}
-              className={`px-4 py-2 rounded-md ${colorScheme.accent} text-white`}
+              className={`px-4 py-2 rounded-md ${colorScheme.accent} text-white hover:shadow-lg duration-300 transition-all`}
             >
               Primary
             </button>
@@ -59,7 +59,7 @@ export const FontPreview: React.FC<FontPreviewProps> = ({
           <div className="flex gap-4 mt-4">
             <button
               style={bodyStyle}
-              className={`px-4 py-2 rounded-md ${colorScheme.accent} text-white`}
+              className={`px-4 py-2 rounded-md ${colorScheme.accent} text-white hover:shadow-lg duration-300 transition-all`}
             >
               Primary
             </button>
@@ -78,7 +78,7 @@ export const FontPreview: React.FC<FontPreviewProps> = ({
           <div className="flex gap-4 mt-4">
             <button
               style={bodyStyle}
-              className={`px-4 py-2 rounded-md ${colorScheme.accent} text-white`}
+              className={`px-4 py-2 rounded-md ${colorScheme.accent} text-white hover:shadow-lg duration-300 transition-all`}
             >
               Primary
             </button>
