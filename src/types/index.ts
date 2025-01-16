@@ -9,6 +9,7 @@ export interface ColorScheme {
   background: string;
   text: string;
   accent: string;
+  cardBackground: string;
 }
 
 export interface FontPairing {
