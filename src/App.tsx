@@ -55,7 +55,7 @@ function App() {
     <div className="p-8 min-h-screen bg-gray-50">
       <header className="mx-auto mb-8 max-w-6xl">
         <div className="flex gap-2 items-center mb-4">
-          <Type size={32} className="text-blue-600" />
+          <Type size={32} className="text-amber-500" />
           <h1 className="text-3xl font-semibold">Google Fonts Preview</h1>
         </div>
 
@@ -75,7 +75,7 @@ function App() {
             <button
               onClick={() => setCurrentTarget('heading')}
               className={`px-4 py-2 rounded-md ${currentTarget === 'heading'
-                ? 'bg-blue-600 text-white'
+                ? 'bg-amber-500 text-white'
                 : 'bg-white border border-gray-300'
                 }`}
             >
@@ -84,7 +84,7 @@ function App() {
             <button
               onClick={() => setCurrentTarget('body')}
               className={`px-4 py-2 rounded-md ${currentTarget === 'body'
-                ? 'bg-blue-600 text-white'
+                ? 'bg-amber-500 text-white'
                 : 'bg-white border border-gray-300'
                 }`}
             >

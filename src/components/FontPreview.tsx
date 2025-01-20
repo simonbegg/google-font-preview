@@ -17,7 +17,7 @@ export const FontPreview: React.FC<FontPreviewProps> = ({
 
   return (
     <div className={`p-8 rounded-lg ${colorScheme.background} ${colorScheme.text}`}>
-      <h1 style={headingStyle} className="mb-4 text-4xl font-bold">
+      <h1 style={headingStyle} className="mb-4 text-4xl font-bold sm:text-5xl">
         The quick brown fox jumps over the lazy dog
       </h1>
       <h2 style={headingStyle} className="mb-3 text-2xl font-semibold">
